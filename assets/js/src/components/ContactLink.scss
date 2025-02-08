@@ -1,0 +1,27 @@
+@import '../../../css/base/variables';
+
+.contact-link{
+    background-color: $header-background ;
+    padding: $section-padding-top-down $magin-standard;
+    @media(max-width:768px){
+      padding: $magin-standard-mobile;
+    }
+    .container{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    &-title{
+        text-align: center;
+    }
+    &-text{
+        padding: $spacing-medium 0;
+        color:$white;
+        text-align: center;
+    }
+    &-button{
+        margin-top:2rem;
+    }
+}

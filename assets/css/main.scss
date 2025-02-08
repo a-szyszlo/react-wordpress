@@ -1,0 +1,221 @@
+
+@import 'base/variables';
+
+// Globalne style
+#root{
+    position: relative;
+    overflow: hidden;
+
+}
+body {
+    background-color: $background-color;
+    font-family: $font-primary;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+    .gradient {
+        position: absolute;
+        z-index: -1;
+        opacity: 0.3;
+        filter: blur(60px);
+        max-height: 400px;
+        max-width: 400px;
+        &--top-left {
+            width: 44vh;
+            height: 42vh;
+            background: linear-gradient(45deg, $primary-color 0%, $secondary-color 100%);
+            top: 20%;
+            left: -10%;
+            border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+    
+        &--top-right {
+            width: 30%;
+            height: 30%;
+            background: linear-gradient(45deg,  $primary-color 0%, $secondary-color 100%);
+            top: -150px;
+            right: -200px;
+            border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+    
+        &--bottom-center {
+            width: 30%;
+            height: 30%;
+            background: linear-gradient(45deg,  $primary-color 0%, $secondary-color 100%);
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        &--bottom-right{
+            width: 44vh;
+            height: 42vh;
+            background: linear-gradient(45deg,  $primary-color 0%, $secondary-color 100%);
+            bottom: 110px;
+            right: -10%;
+            transform: translateX(-50%);
+            border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        &--center-center {
+            width: 30%;
+            height: 30%;
+            background: linear-gradient(45deg,  $primary-color 0%, $secondary-color 100%);
+            top: 20%;
+            right: 20%;
+            border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+    }
+}
+.root a{
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+        background-color: $secondary-color;
+        height: 2px;
+        bottom: 0;
+        transform-origin: 100% 50%;
+        transform: scaleX(0);
+        transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+    &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: $secondary-color;
+    }
+    &:hover::before {
+        transform-origin: 0% 50%;
+        transform: scaleX(1);
+    }
+    &:hover::after {
+        transform: translate3d(0, 0, 0);
+    }
+    span {
+        display: inline-block;
+        transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+    &:hover span {
+        transform: translate3d(-200%, 0, 0);
+    }
+}
+
+
+h1, h2, h3, h4 {
+    font-family: $font-secondary;
+    color: $primary-color;
+    font-weight: 600;
+}
+
+
+p {
+    font-size: $font-size-medium;
+    line-height: 1.6;
+    margin-bottom: $spacing-medium;
+}
+.max-width-custom{
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+.global-subtitle{
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:$secondary-color;
+    @media(max-width:768px){
+        font-size: 1rem;
+    }
+}
+.global-title{
+    font-size: 1.6rem;
+    font-weight: bold;
+    color:$primary-color;
+    margin:0;
+    margin-bottom:$spacing-medium;
+    @media(max-width:768px){
+        font-size: 1.3rem;
+    }
+}
+
+.gradient-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+button, input[type="submit"]{
+    background-color: transparent;
+    border-color: $primary-color;
+    color: $primary-color;
+    box-sizing: border-box;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $font-secondary;
+    background-color: transparent;
+    background: {
+      image: linear-gradient(45deg, $primary-color 50%, transparent 50%);
+      position: 100%;
+      size: 400%;
+    }
+    transition: background 300ms, color 300ms ease-in-out;
+    &.btn-light{
+        border-color:$elem-background-color;
+        color: $elem-background-color;
+        background-image: linear-gradient(45deg, $elem-background-color 50%, transparent 50%);;
+    }
+    &:hover {
+      background-position: 0;
+      color:$white
+    }
+}
+//elem
+
+.elem{
+    background-color: $elem-background-color;
+    border: 1px solid $elem-border-color;
+    color: $elem-font-color;
+}
+
+//forms
+
+input, textarea{
+    color:$footer-background;
+    padding: $spacing-medium;
+    height: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $elem-border-color;
+    border-radius: 12px;
+    background: $elem-background-color;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: all .2s linear;
+    font-family: $font-primary;
+}
+@media(max-width:768px){
+    section{
+        padding: $section-padding-top-down-mobile $magin-standard-mobile!important;
+    }
+}

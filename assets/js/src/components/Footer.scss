@@ -1,0 +1,11 @@
+@import '../../../css/base/variables';
+
+.footer {
+    background-color: $footer-background;
+    color: white;
+    text-align: center;
+    padding: $spacing-medium $magin-standard;
+    p {
+        margin: 0;
+    }
+}

@@ -1,0 +1,269 @@
+@import "../../../css/base/variables";
+
+.contact {
+  position: relative;
+  padding: $section-padding-top-down 0;
+
+  &--wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    max-width: 1600px;
+    margin: auto;
+    position: relative;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .circle-elem {
+    height: 400px;
+    width: 400px;
+    z-index: 5;
+    position: absolute;
+    top: 30%;
+    left: 2rem;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .contact-graph {
+    width: 100%;
+    position: absolute;
+    height: 88%;
+    z-index: 0;
+    bottom: $section-padding-top-down;
+
+    &--background {
+      background: linear-gradient(270deg, #322a63, #5f3b65);
+      height: 100%;
+      clip-path: polygon(0% 25%, 100% 1%, 100% 88%, 0% 100%);
+
+      @media (max-width: 768px) {
+        margin-left: -$magin-standard-mobile;
+      }
+
+      img {
+        object-fit: cover;
+        object-position: center center;
+        width: 100%;
+        height: 100%;
+        display: block;
+        mix-blend-mode: multiply;
+        filter: grayscale(1);
+        opacity: 0.7;
+
+      }
+    }
+
+    &--image {
+      width: 45%;
+      overflow: hidden;
+      z-index: 1;
+      mix-blend-mode: multiply;
+      margin-top: -2rem;
+      margin-left: 2rem;
+      margin-bottom: 10%;
+      border-radius: 35rem 10px 10px 30px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+
+      img {
+        object-fit: cover;
+        object-position: center center;
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: transform 0.4s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .contact-content {
+    width: 45%;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 50%;
+    z-index: 1;
+    margin-right: $magin-standard;
+    margin-bottom: 2rem;
+
+    @media (max-width: 1024px) {
+      max-width: 90%;
+      width: 90%;
+      margin-right:2rem;
+    }
+    @media (max-width: 768px) {
+      width: inherit;
+      max-width: 100%;
+      margin: 0;
+
+      input,
+      textarea {
+        width: 100% !important;
+      }
+    }
+
+  }
+
+  .contact-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .contact-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+
+    &--form {
+      form {
+
+        input,
+        textarea {
+          background-color: $white;
+          border: none;
+          border-bottom: 1px solid $white;
+          margin-bottom: 0.7rem;
+          outline: none;
+          transition: border-color 0.3s ease, background-color 0.3s ease;
+          box-shadow: none;
+          width:100%;
+          &:hover {
+            border-bottom-color: darken($primary-color, 10%);
+          }
+
+          &:focus {
+            border-bottom-color: $primary-color;
+            background-color: lighten($white, 5%);
+          }
+
+          &:active {
+            border-bottom-color: darken($primary-color, 20%);
+          }
+
+          &:disabled {
+            border-bottom-color: $text-color;
+            background-color: $text-color;
+            cursor: not-allowed;
+          }
+        }
+        input[type="submit"] {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: #fff;
+          background: $primary-color;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background: darken($primary-color, 10%);
+          }
+        }
+        span[data-name="your-checks"]{
+          .wpcf7-form-control{
+            display: flex;
+            flex-wrap: wrap;
+          }
+        }
+        .wpcf7-list-item {
+          position: relative;
+          display: flex;
+          align-items: center;
+          margin-bottom: 0.7rem;
+        
+          input[type="checkbox"] {
+            display: none; 
+          }
+        
+          label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+          }
+        
+          input[type="checkbox"] + span.wpcf7-list-item-label {
+            position: relative;
+            padding-left: 25px; 
+          }
+        
+          input[type="checkbox"] + span.wpcf7-list-item-label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18%;
+            width: 17px;
+            height: 17px;
+            border: 1px solid #c8ccd4;
+            border-radius: 3px;
+            background-color: transparent;
+            transition: background 0.1s ease, border-color 0.1s ease;
+          }
+        
+          input[type="checkbox"]:checked + span.wpcf7-list-item-label:before {
+            border-color: transparent;
+            background: #6871f1;
+            animation: jelly 0.6s ease; 
+          }
+        
+          input[type="checkbox"] + span.wpcf7-list-item-label:after {
+            content: '';
+            position: absolute;
+            left: 5px; 
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg) scale(0);
+            width: 5px;
+            height: 11px;
+            border-right: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease 0.15s;
+          }
+        
+          input[type="checkbox"]:checked + span.wpcf7-list-item-label:after {
+            opacity: 1;
+            transform: translateY(-50%) rotate(45deg) scale(1); 
+          }
+        
+          @keyframes jelly {
+            0% {
+              transform: scale(1, 1);
+            }
+            30% {
+              transform: scale(1.25, 0.75);
+            }
+            40% {
+              transform: scale(0.75, 1.25);
+            }
+            50% {
+              transform: scale(1.15, 0.85);
+            }
+            65% {
+              transform: scale(0.95, 1.05);
+            }
+            75% {
+              transform: scale(1.05, 0.95);
+            }
+            100% {
+              transform: scale(1, 1);
+            }
+          }
+        }
+      
+      }
+    }
+  }
+}

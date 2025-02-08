@@ -1,0 +1,77 @@
+@import '../../../css/base/variables';
+
+.content-faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $section-padding-top-down $magin-standard;
+
+    .faq {
+        .faq-wrapper {
+            margin-bottom: 15px;
+            border: 1px solid $elem-border-color;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &.active {
+                border-color: $primary-color;
+            }
+
+            .faq-question {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+                background-color: $elem-background-color;
+                font-weight: bold;
+                color: $elem-font-color;
+
+                .arrow-icon {
+                    margin-left: 10px;
+                    display: inline-block;
+
+                    .arrow {
+                        width: 10px;
+                        height: 10px;
+                        border: solid $primary-color;
+                        border-width: 0 2px 2px 0;
+                        display: inline-block;
+                        padding: 3px;
+                        transform: rotate(45deg);
+                        transition: transform 0.3s ease;
+                    }
+
+                    .rotate {
+                        transform: rotate(-135deg);
+                    }
+                }
+            }
+
+            .faq-answer {
+                padding: 0 15px;
+                font-size: 1rem;
+                color: $elem-font-color;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                p{
+                    font-size: 1rem;
+                }
+
+                &.show {
+                    max-height: 6000px;
+                    transition: max-height 0.5s ease-in;
+                }
+                
+            }
+        }
+    }
+
+    .gradient {
+        @media (max-width: 768px) {
+            display: none !important;
+        }
+    }
+}
